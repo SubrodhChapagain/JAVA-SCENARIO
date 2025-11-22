@@ -4,6 +4,11 @@ public class rickshaw
 {
     public static void main (String[]args){
     
+        
+    int basefare = 25;
+    int perkilometercharge = 10;
+    int permincharge = 5;
+    
     Scanner input = new Scanner (System.in);
     System.out.println("ENTER DISTANCE in Km");
     double Dis = input.nextDouble();
@@ -27,19 +32,13 @@ public class rickshaw
     String checkr = (ride.equalsIgnoreCase("yes"))?"NIGHT RIDE":"DAY RIDE";
     System.out.println(checkr);
     
-    
-    int basefare = 25;
-    int perkilometercharge = 10;
-    int permincharge = 5;
-    
-    double total = Dis*perkilometercharge +time*permincharge + basefare;
-    System.out.println("Actual fare "+total);
+    double total = (Dis*perkilometercharge) +(time*permincharge)+ basefare;
     
     double total1 = check.equalsIgnoreCase("CUSTOMER IS LOCAl") ? total * 0.9 : total; //10%
-    System.out.println("Total charge after discount(only for locals); "+total1);
-     
-    double total2= checkr.equalsIgnoreCase("night ride") ? total1*1.15 : total; //15%
-    System.out.println("Total charge for night ride "+total2);
+    double total2= checkr.equalsIgnoreCase("night ride") ? total1*1.15 : total1; //15%
+    
+    
+    System.out.println("TOTAL Fare: " + total2);
     
    
     
